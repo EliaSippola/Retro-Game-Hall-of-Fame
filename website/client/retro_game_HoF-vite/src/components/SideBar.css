@@ -1,0 +1,12 @@
+#sidebar {
+    min-width: 250px;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.sidebarCard {
+    background-color: #F3F3F3;
+    min-height: 50%;
+    width: auto;
+    padding: 10px;
+}

@@ -1,0 +1,28 @@
+body,
+html {
+  width: 100%;
+  margin: 0;
+}
+
+html,
+body,
+#root,
+#app {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+}
+
+#content {
+  padding: 10px;
+  background-color: white;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
