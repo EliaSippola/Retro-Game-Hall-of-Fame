@@ -1,0 +1,15 @@
+#search {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#searchBox {
+    height: 30px;
+    min-width: 250px;
+    border-radius: 15px;
+    border-color: gray;
+    border: solid 1px;
+    padding: 5px;
+}

@@ -1,0 +1,14 @@
+#footer {
+    background-color: #304BFF;
+    color: white;
+    margin: 0;
+    width: 100%;
+    height: 100px;
+    display: inline-grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+}
+
+#footer p {
+    padding: 0 20px;
+}

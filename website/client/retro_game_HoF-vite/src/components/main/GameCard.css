@@ -1,0 +1,56 @@
+.cardContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 320px;
+}
+
+#gamecard {
+    width: 200px;
+    height: 300px;
+    background-color: darkgray;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px;
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    overflow: hidden;
+}
+
+#gamecard:hover {
+    background-color: gray;
+}
+
+#gamecard h2 {
+    padding: 5px;
+}
+
+#gamecard p {
+    margin-right: 7px;
+    padding: 0px 0px 7px 7px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    max-height: 100px;
+}
+
+/* width */
+#gamecard ::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+#gamecard ::-webkit-scrollbar-track {
+    background: darkgray;
+    border-radius: 4px;
+}
+
+/* Handle */
+#gamecard ::-webkit-scrollbar-thumb {
+    background: rgb(100, 100, 100);
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+#gamecard ::-webkit-scrollbar-thumb:hover {
+    background: rgb(48, 48, 48);
+}
