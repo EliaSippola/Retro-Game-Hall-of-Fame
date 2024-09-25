@@ -7,12 +7,13 @@ html {
 html,
 body,
 #root,
-#app {
+#app,
+#app > div {
   margin: 0;
   min-height: 100vh;
 }
 
-#app {
+#app > div {
   background-color: white;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -40,13 +41,15 @@ h2 {
 }
 
 #content {
-  padding: 10px;
-
+  padding: 10px 0px;
   display: grid;
   grid-template-columns: 1fr auto;
+  justify-self: center;
+  max-width: 1750px;
+  width: 100%;
 }
 
 #gameData {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 50px auto auto 1fr;
 }

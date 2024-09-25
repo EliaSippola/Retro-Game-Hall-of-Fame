@@ -1,23 +1,29 @@
 import React from 'react';
 import './App.css'
-import { Header } from './components/common/Header';
-import { Footer } from './components/common/Footer';
-import { Games } from './components/main/Games';
-import { SideBar } from './components/common/SideBar';
-import { Search } from './components/main/search';
+import Main from './components/main/Main';
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import GameSite from './components/gamesite/GameSite';
 
 function App() {
+
   return (
     <div id='app'>
-      <Header />
-      <div id='content'>
-        <div id='gameData'>
-          <Search />
-          <Games />
-        </div>
-        <SideBar />
-      </div>
-      <Footer />
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={<Main />} 
+          />
+          <Route
+            path='/game/:id'
+            element={<GameSite />}
+          />
+          <Route 
+            path="*"
+            element={<Navigate to="/" />}
+          />
+        </Routes>
+      </Router>
     </div>
   )
 }

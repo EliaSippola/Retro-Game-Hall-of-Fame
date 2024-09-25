@@ -1,0 +1,15 @@
+#banner {
+    width: 100%;
+    height: 250px;
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    background-color: gray;
+}
+
+#banner h1 {
+    padding: 0 10px;
+}
+
+#banner p {
+    padding: 10px;
+}
