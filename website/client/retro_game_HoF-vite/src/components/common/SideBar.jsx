@@ -7,51 +7,6 @@ export function SideBar() {
             <h1>Events</h1>
             <br />
             <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
-            <p>- 1.23.2025 Lan event at london. Everyone over 13 is welcome.</p>
         </div>
     </div>
   )

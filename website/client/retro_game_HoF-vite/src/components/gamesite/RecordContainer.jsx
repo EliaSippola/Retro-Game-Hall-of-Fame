@@ -15,7 +15,7 @@ export function RecordContainer({ records }) {
   return (
     <div id='recordcontainer'>
         {/* <Categories setCategory={setCategory} /> */}
-        { getCurrentRecords(records.hall_of_fame, 20, currentPage).map((rec, i) => (
+        { getCurrentRecords(records.hall_of_fame.sort((a, b) => {return b.score - a.score}), 20, currentPage).map((rec, i) => (
           <Record record={rec} key={i} id={i + ((currentPage - 1) * 20)} />
         ))}
         <Paginator amount={records.hall_of_fame.length} perpage={20} setPage={setCurrentPage} page={currentPage} />
