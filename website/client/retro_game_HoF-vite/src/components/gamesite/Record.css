@@ -1,0 +1,38 @@
+#record {
+    background-color: white;
+    margin-top: 5px;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto 1fr auto auto;
+}
+
+#record:hover {
+    background-color: #F3F3F3;
+}
+
+#record p {
+    padding: 10px;
+}
+
+#record p:not(:last-child) {
+    border-right: 1px solid gray;
+}
+
+.id {
+    text-align: center;
+    width: 20px;
+}
+
+.username {
+    width: auto;
+}
+
+.score {
+    text-align: center;
+    width: 80px;
+}
+
+.time {
+    text-align: center;
+    width: 175px;
+}

@@ -3,13 +3,63 @@
     height: 250px;
     display: grid;
     grid-template-rows: 1fr auto auto;
-    background-color: gray;
+    background-color: white;
+    grid-template-columns: 1fr auto;
+    border-bottom: 1px solid gray;
+    min-width: 600px;
+    overflow: hidden;
 }
 
-#banner h1 {
+#banner > h1 {
+    grid-column: 1;
     padding: 0 10px;
 }
 
-#banner p {
+#banner > p {
+    grid-column: 1;
     padding: 10px;
 }
+
+#spacer {
+    grid-column: 1;
+}
+
+#gamedetails {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    width: 300px;
+    border-left: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+#gamedetails > p {
+    width: auto;
+    padding: 10px;
+    border-top: 1px solid gray;
+}
+
+@media only screen and (max-device-width: 768px) {
+    #banner {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto;
+      min-width: none;
+      height: auto;
+    }
+
+    #banner > h1 {
+        padding: 10px;
+    }
+
+    #banner > p {
+        width: 95%;
+    }
+
+    #gamedetails {
+        grid-column: 1;
+        grid-row: inherit;
+        width: 100%;
+        border-left: none;
+    }
+  }

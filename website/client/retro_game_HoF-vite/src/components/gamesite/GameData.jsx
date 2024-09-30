@@ -1,5 +1,6 @@
 import { Banner } from './Banner';
 import './gameData.css';
+import { RecordContainer } from './RecordContainer';
 
 export function GameData(data) {
 
@@ -7,8 +8,8 @@ export function GameData(data) {
 
     return (
       <div id='gamedata'>
-        <Banner header={data.game[0].game_name.en} desc={data.game[0].description.en} />
-        <div id='recordContainer'><p>records</p></div>
+        <Banner game={data.game[0]} />
+        <RecordContainer records={data.game[0]} />
       </div>
     )
 }

@@ -11,24 +11,30 @@
     width: 30px;
     margin: 0 10px;
     font-size: 20px;
-    border: 2px solid lightgray;
+    border: 2px solid #F3F3F3;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    background-color: lightgray;
+    background-color: #F3F3F3;
     padding: 5px;
     user-select: none;
-    box-shadow: 2px 2px 5px;
+    box-shadow: 2px 2px 5px black;
 }
 
 #paginator div:hover {
-    background-color: gray;
-    border: 2px solid gray;
+    background-color: lightgray;
+    border: 2px solid lightgray;
     box-shadow: 1px 1px 4px;
 }
 
-#paginator .dots, #paginator .dots:hover {
+/* #paginator .dots, #paginator .dots:hover {
     background-color: rgb(233, 233, 233);
     border: 2px solid rgb(233, 233, 233);
+} */
+
+#paginator .currentPage, #paginator .currentPage:hover {
+    background-color: #304BFF;
+    border: 1px solid #304BFF;
+    color: white;
 }

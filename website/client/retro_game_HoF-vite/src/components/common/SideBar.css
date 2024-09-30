@@ -7,6 +7,19 @@
 .sidebarCard {
     background-color: #F3F3F3;
     min-height: 500px;
-    width: auto;
+    max-width: 330px;
     padding: 10px;
+    text-wrap: wrap;
 }
+
+@media only screen and (max-device-width: 768px) {
+
+    #sidebar {
+        min-width: none;
+        margin-top: 15px;
+    }
+
+    .sidebarCard {
+        height: auto;
+    }
+  }

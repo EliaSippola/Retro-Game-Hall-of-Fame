@@ -1,0 +1,42 @@
+#categories {
+    width: fit-content;
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid gray;
+    overflow: hidden;
+    user-select: none;
+}
+
+#categories label {
+    width: 100px;
+}
+
+#categories span:hover {
+    background-color: #F3F3F3;
+}
+
+#categories label:not(:last-child) {
+    border-right: 1px solid gray;
+}
+
+#categories input[type="radio"] {
+    display: none;
+}
+
+/* #categories input[type="radio"] {
+    display: none;
+} */
+
+#categories span {
+    display: block;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 3px;
+    color: #3e4963;
+    text-align: center;
+}
+
+#categories input[type="radio"]:checked+span {
+    background-color: #304BFF;
+    color: white;
+}

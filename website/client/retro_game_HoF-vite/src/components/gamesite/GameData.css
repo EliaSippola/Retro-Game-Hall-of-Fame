@@ -1,9 +1,14 @@
 #gamedata {
     margin-left: 10px;
-    min-height: 750px;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px;
     display: grid;
     grid-template-rows: auto 1fr;
     overflow: hidden;
+    border: 1px solid gray;
+}
+
+@media only screen and (max-device-width: 768px) {
+    #gamedata {
+        width: 97%;
+    }
 }

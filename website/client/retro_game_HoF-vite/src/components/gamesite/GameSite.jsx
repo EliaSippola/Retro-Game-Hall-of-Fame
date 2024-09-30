@@ -20,10 +20,10 @@ const GameSite = () => {
         <div>
             <Header />
             <div id='content'>
-                { game.length > 0 ? 
+                { game != null && game.length > 0 ? 
                     <div><GameData game={game} /></div>
                     :
-                    <div><div></div></div>
+                    <div id="placeholder"><p>Loading...</p></div>
                 }
                 <SideBar />
             </div>
