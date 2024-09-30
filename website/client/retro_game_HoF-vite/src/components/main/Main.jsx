@@ -18,8 +18,6 @@ const Main = () => {
         setData(getAllGameData());
     }, []);
 
-    console.log(data);
-
     function getCurrentGames(arr, amount, num) {
         return arr.slice((num - 1) * amount, (num - 1) * amount + amount)
     }

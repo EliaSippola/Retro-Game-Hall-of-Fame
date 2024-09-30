@@ -4,8 +4,6 @@ import { RecordContainer } from './RecordContainer';
 
 export function GameData(data) {
 
-    console.log(data);
-
     return (
       <div id='gamedata'>
         <Banner game={data.game[0]} />

@@ -2,8 +2,6 @@ import './Banner.css'
 
 export function Banner({game}) {
 
-  console.log(game);
-
   return (
     <div id='banner'>
         <div id="spacer"></div>

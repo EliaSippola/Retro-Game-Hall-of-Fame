@@ -9,7 +9,6 @@ export function Paginator({ amount, perpage, setPage, page }) {
 
   const handleClick = (e) => {
     setPage(parseInt(e.target.textContent));
-    console.log(e);
   }
 
   return (

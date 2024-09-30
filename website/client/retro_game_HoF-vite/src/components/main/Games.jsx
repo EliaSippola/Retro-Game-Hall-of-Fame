@@ -3,8 +3,6 @@ import './Games.css'
 
 export function Games(data) {
 
-  console.log(data);
-
   return (
     <div id='games'>
       {data.data.map(game => (
