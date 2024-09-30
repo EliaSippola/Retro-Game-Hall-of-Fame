@@ -1,5 +1,5 @@
 import { Banner } from './Banner';
-import './gameData.css';
+import './GameData.css';
 import { RecordContainer } from './RecordContainer';
 
 export function GameData(data) {
