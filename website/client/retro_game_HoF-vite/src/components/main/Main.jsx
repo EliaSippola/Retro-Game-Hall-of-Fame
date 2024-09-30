@@ -6,7 +6,7 @@ import { Header } from './../common/Header';
 import { Footer } from './../common/Footer';
 import { Games } from './../main/Games';
 import { SideBar } from './../common/SideBar';
-import { Search } from './../main/search';
+import { Search } from './../main/Search';
 import { Paginator } from '../common/Paginator';
 import { getAllGameData } from "../../methods/gameData";
 
