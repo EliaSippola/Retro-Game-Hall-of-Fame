@@ -5,7 +5,7 @@ import { Header } from "../common/Header";
 import { Footer } from "../common/Footer";
 import { SideBar } from "../common/SideBar";
 import { useParams } from "react-router-dom";
-import { getOneGameData } from "../../methods/gameData";
+import { getOneGame } from "../../methods/gameData";
 import { GameData } from "./GameData";
 
 const GameSite = () => {
@@ -13,8 +13,12 @@ const GameSite = () => {
     const param = useParams();
 
     useEffect(() => {
-        setGame(getOneGameData(param.id));
+        getOneGameAsync(param.id);
     }, []);
+
+    const getOneGameAsync = async (id) => {
+        setGame(await getOneGame(id));
+    }
 
     return (
         <div>

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './GameCard.css'
+import { GameImage } from './GameImage';
 
 export function GameCard( data ) {
 
@@ -22,6 +23,7 @@ export function GameCard( data ) {
               </div>
               :
               <div>
+                <GameImage source={data.game.game_image} />
                 <h2>{data.game.game_name.en}</h2>
                 <p>{data.game.description.en}</p>
               </div>

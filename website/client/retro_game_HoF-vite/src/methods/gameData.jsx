@@ -1,19 +1,47 @@
-import data from './../assets/games.json';
+// import data from './../assets/games.json';
 
-export function getAllGameData() {
+// export async function getAllGameData() {
 
-    const obj = JSON.parse(JSON.stringify(data));
-    return obj;
+//     const obj = JSON.parse(JSON.stringify(data));
+//     return obj;
+
+// }
+
+// export async function getOneGameData(id) {
+
+//     const obj = JSON.parse(JSON.stringify(data))
+
+//     const game = obj.games.filter(function(e) {
+//         return e.ID == id;
+//     });
+//     return game;
+
+// }
+
+// from server
+
+const baseUrl = import.meta.env.VITE_API_URL;
+
+export const getGames = async () => {
+
+    const res = await fetch(baseUrl + '/games');
+
+    if (res == null) {
+        return JSON.parse({});
+    }
+
+    return res.json();
 
 }
 
-export function getOneGameData(id) {
+export const getOneGame = async (id) => {
 
-    const obj = JSON.parse(JSON.stringify(data))
+    const res = await fetch(baseUrl + '/games/' + id);
 
-    const game = obj.games.filter(function(e) {
-        return e.ID == id;
-    });
-    return game;
+    if (res == null) {
+        return JSON.parse({});
+    }
+
+    return res.json();
 
 }
