@@ -1,0 +1,16 @@
+#back {
+    position: fixed;
+    margin: 20px;
+    user-select: none;
+    padding: 15px;
+    border: 1px solid white;
+    width: 50px;
+    border-radius: 10px;
+    text-align: center;
+    background: none;
+    backdrop-filter: blur(10px) brightness(0.7);
+}
+
+#back:hover {
+    background-color: #1c36dd;
+}

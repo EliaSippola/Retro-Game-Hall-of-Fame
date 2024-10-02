@@ -8,17 +8,29 @@
 #gamecard {
     width: 200px;
     height: 300px;
-    background-color: rgba(107, 107, 107, 0.2);
     border-radius: 10px;
     box-shadow: 3px 3px 10px;
+    overflow: hidden;
+    background: linear-gradient(110deg, white, black);
+    background-size: cover;
+    background-position: center;
+}
+
+#gamecard > div {
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-rows: 1fr auto auto;
-    overflow: hidden;
+    backdrop-filter: brightness(0.5) blur(5px);
+    color: white;
 }
 
 #gamecard:hover {
-    background-color: rgba(107, 107, 107, 0.4);
     box-shadow: 2px 2px 5px;
+}
+
+#gamecard:hover > div {
+    backdrop-filter: brightness(0.4) blur(5px);
 }
 
 #gamecard h2 {
@@ -40,7 +52,7 @@
 
 #gamecard p:hover {
     overflow-y: auto;
-    background-color: rgba(51, 51, 51, 0.1);
+    background-color: rgba(73, 73, 73, 0.3);
     box-shadow: inset 0 -10px 10px -10px black;
 }
 
@@ -51,17 +63,17 @@
 
 /* Track */
 #gamecard ::-webkit-scrollbar-track {
-    background: darkgray;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
 }
 
 /* Handle */
 #gamecard ::-webkit-scrollbar-thumb {
-    background: rgb(100, 100, 100);
+    background: rgb(0, 0, 0, 0.2);
     border-radius: 4px;
 }
 
 /* Handle on hover */
 #gamecard ::-webkit-scrollbar-thumb:hover {
-    background: rgb(48, 48, 48);
+    background: rgb(31, 31, 31);
 }

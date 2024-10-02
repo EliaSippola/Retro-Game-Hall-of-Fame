@@ -21,5 +21,7 @@
 
     .sidebarCard {
         height: auto;
+        max-width: none;
+        width: 97%;
     }
   }

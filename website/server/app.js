@@ -4,6 +4,7 @@ const cors = require('cors');
 const conn = require('./config/db');
 const userApi = require('./routes/api_user_routes');
 const gameApi = require('./routes/api_game_routes');
+const path = require('path');
 
 const app = exp();
 dotenv.config();
@@ -13,8 +14,13 @@ app.use(cors());
 app.use(exp.json());
 app.use('/api/users', userApi);
 app.use('/api/games', gameApi);
+app.use('/api/files', exp.static('assets'));
 
 const PORT = process.env.PORT || 3000;
+
+app.get('/api/files', (req, res) => {
+    res.status(204).end();
+});
 
 app.get("*", (req, res) => {
     res.status(404).end();

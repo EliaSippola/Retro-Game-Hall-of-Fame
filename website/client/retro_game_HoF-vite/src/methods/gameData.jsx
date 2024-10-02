@@ -45,3 +45,15 @@ export const getOneGame = async (id) => {
     return res.json();
 
 }
+
+export const getPhoto = async (file) => {
+    const res = await fetch(baseUrl + "/files/" + file);
+
+    if (!res.ok || res.status == 204) {
+        return null;
+    }
+
+    const imageBlob = await res.blob();
+    const imageObjectUrl = URL.createObjectURL(imageBlob);
+    return imageObjectUrl;
+}
