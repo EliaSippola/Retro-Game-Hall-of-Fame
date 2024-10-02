@@ -49,26 +49,3 @@
     border-top: 1px solid gray;
 }
 
-@media only screen and (max-device-width: 768px) {
-    #banner {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto auto auto;
-      min-width: none;
-      height: auto;
-    }
-
-    #banner > h1 {
-        padding: 10px;
-    }
-
-    #banner > p {
-        width: 95%;
-    }
-
-    #gamedetails {
-        grid-column: 1;
-        grid-row: inherit;
-        width: 100%;
-        border-left: none;
-    }
-  }

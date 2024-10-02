@@ -23,13 +23,17 @@ const Main = () => {
         setData(await getGames());
     }
 
+    function getFilteredGames(arr, filter) {
+        return arr.filter(a => a.game_name.en.toLowerCase().includes(filter.toLowerCase()));
+    }
+
     function getCurrentGames(arr, amount, num, filter) {
         return arr.slice((num - 1) * amount, (num - 1) * amount + amount).filter(a => a.game_name.en.toLowerCase().includes(filter.toLowerCase()));
     }
 
     return (
         <div>
-            <Header />
+            <Header state={1} />
             <div id='content'>
                 <div id='gameData'>
                     <Search value={value} setValue={setValue} />
@@ -37,10 +41,10 @@ const Main = () => {
                         <div id="placeholder"><p>Loading...</p></div>
                         :
                         <>
-                        {data.length > 0 ?
+                        {getFilteredGames(data, value).length > 0 ?
                             <>
                             <Games data={getCurrentGames(data, 20, page, value)} />
-                            <Paginator amount={data.length} perpage={20} setPage={setPage} page={page} />
+                            <Paginator amount={getFilteredGames(data, value).length} perpage={20} setPage={setPage} page={page} />
                             </>
                             :
                             <div id="placeholder"><p>No games</p></div>

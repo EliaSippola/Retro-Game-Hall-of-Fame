@@ -7,8 +7,9 @@
     border: 1px solid gray;
 }
 
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-device-width: 812px) {
     #gamedata {
-        width: 97%;
+        width: auto;
+        margin-left: 0;
     }
 }

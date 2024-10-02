@@ -45,8 +45,8 @@ h2 {
   display: grid;
   grid-template-columns: 1fr auto;
   justify-self: center;
-  max-width: 1400px;
   width: 100%;
+  max-width: 1400px;
 }
 
 #gameData {
@@ -54,16 +54,16 @@ h2 {
   grid-template-rows: 50px auto auto 1fr;
 }
 
-@media only screen and (max-device-width: 768px) {
-  #content {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-  }
-}
-
 #placeholder {
   width: auto;
   min-height: 200px;
   padding: 10px 10px 10px 20px;
   background-color: #F3F3F3;
+}
+
+@media only screen and (max-device-width: 812px) {
+  #content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
 }

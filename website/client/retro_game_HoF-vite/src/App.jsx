@@ -3,6 +3,7 @@ import './App.css'
 import Main from './components/main/Main';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import GameSite from './components/gamesite/GameSite';
+import LoginSite from './components/login/LoginSite';
 
 function App() {
 
@@ -17,6 +18,10 @@ function App() {
           <Route
             path='/game/:id'
             element={<GameSite />}
+          />
+          <Route
+            path='/login'
+            element={<LoginSite />}
           />
           <Route 
             path="*"

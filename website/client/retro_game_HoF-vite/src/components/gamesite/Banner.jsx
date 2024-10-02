@@ -47,7 +47,7 @@ export function Banner({game}) {
         <p>Genre: {game.genre}</p>
       </div>
       <Back />
-    </div>
+      </div>
     </div>
   }
   </>
