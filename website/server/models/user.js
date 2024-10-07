@@ -9,10 +9,11 @@ const userSchema = new mong.Schema({
         type: String,
         required: true
     },
-    permissionLevel: {
+    permission_level: {
         type: Number,
         default: 0
-    }
+    },
+    game_access: [String]
 });
 
 const User = mong.model('User', userSchema, 'users');

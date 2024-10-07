@@ -1,16 +1,16 @@
 import React from "react";
 import { Header } from "../common/Header";
 import { Footer } from "../common/Footer";
-import LoginForm from "./LoginForm";
 import { SideBar } from "../common/SideBar";
+import UserEdit from "./UserEdit";
 
-const LoginSite = () => {
+const Usersite = () => {
 
     return (
         <div>
             <Header />
             <div id='content'>
-                <LoginForm />
+                <UserEdit />
                 <SideBar />
             </div>
             <Footer />
@@ -18,4 +18,4 @@ const LoginSite = () => {
     )
 }
 
-export default LoginSite;
+export default Usersite;

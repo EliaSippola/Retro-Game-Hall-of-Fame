@@ -22,7 +22,7 @@ const GameSite = () => {
 
     return (
         <div>
-            <Header state={1}/>
+            <Header />
             <div id='content'>
                 { game != null && game.length > 0 ? 
                     <div><GameData game={game} /></div>

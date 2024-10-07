@@ -1,0 +1,27 @@
+#intra {
+    background-color: #f3f3f3;
+    width: auto;
+    height: auto;
+    margin-left: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: min-content;
+}
+
+#categoryselector {
+    grid-column: 1;
+}
+
+#useredit {
+    grid-column: 1;
+}
+
+#usercreate {
+    grid-column: 2;
+    grid-row: 1/3;
+}
+
+#gameedit {
+    grid-column: 1;
+}

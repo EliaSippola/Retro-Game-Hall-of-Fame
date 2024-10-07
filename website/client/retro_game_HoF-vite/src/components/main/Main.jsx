@@ -9,6 +9,7 @@ import { SideBar } from './../common/SideBar';
 import { Search } from '../common/Search';
 import { Paginator } from '../common/Paginator';
 import { getGames } from "../../methods/gameData";
+import { getUser } from "../../methods/userData";
 
 const Main = () => {
     const [data, setData] = useState(null);
@@ -33,7 +34,7 @@ const Main = () => {
 
     return (
         <div>
-            <Header state={1} />
+            <Header />
             <div id='content'>
                 <div id='gameData'>
                     <Search value={value} setValue={setValue} />

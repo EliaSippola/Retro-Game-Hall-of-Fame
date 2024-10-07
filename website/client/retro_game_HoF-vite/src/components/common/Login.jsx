@@ -1,20 +1,46 @@
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
+import { getUser, setUser } from '../../methods/userData';
+import { useState } from 'react';
 
-export function Login({state}) {
+export function Login() {
 
     const navigate = useNavigate();
+    const user = getUser();
+    const [active, setActive] = useState(false);
 
-    const handleClick = () => {
+    const handleLoginClick = () => {
         navigate('/login');
+    }
+
+    const handleUserClick = () => {
+        active ? setActive(false) : setActive(true);
+    }
+
+    const handleLogoutClick = () => {
+        setUser('', '');
+        setActive(false);
+        navigate('/');
+    }
+
+    const handleUserSiteClick = () => {
+        setActive(false);
+        navigate('/account');
     }
 
     return (
         <>
-        {state == 1 ?
-            <div id='login' onClick={handleClick}><p>Login</p></div>
+        {user._id == "" ?
+            <div id='login' onClick={handleLoginClick}><p>Login</p></div>
             :
-            <></>
+            <div>
+            <div id='login' onClick={handleUserClick}><p>{user.username}</p></div>
+            {active ?
+                <div className='user-dropdown-content'><p onClick={handleLogoutClick}>Log out</p><p onClick={handleUserSiteClick}>Account</p></div>
+                :
+                <></>
+            }
+            </div>
         }
         </>
     )

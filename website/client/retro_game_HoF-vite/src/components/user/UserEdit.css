@@ -1,0 +1,31 @@
+#useredit {
+    background-color: #F3F3F3;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+#useredit input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+#useredit button {
+    width: 70px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid #F3F3F3;
+    box-shadow: 0 0 0 2px #304BFF;
+    background-color: #304BFF;
+    color: white;
+}
+
+#useredit button:hover {
+    background-color: #7486fa;
+    box-shadow: 0 0 0 2px #7486fa;
+}

@@ -1,0 +1,36 @@
+#loginform {
+    background-color: #F3F3F3;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+#loginform form > div {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+#loginform input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin: 5px 0;
+    width: fit-content;
+}
+
+#loginform button {
+    width: 70px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid #F3F3F3;
+    box-shadow: 0 0 0 2px #304BFF;
+    background-color: #304BFF;
+    color: white;
+}
+
+#loginform button:hover {
+    background-color: #7486fa;
+    box-shadow: 0 0 0 2px #7486fa;
+}

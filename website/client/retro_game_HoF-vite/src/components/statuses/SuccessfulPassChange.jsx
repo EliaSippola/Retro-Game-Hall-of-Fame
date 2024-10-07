@@ -1,16 +1,18 @@
 import React from "react";
 import { Header } from "../common/Header";
 import { Footer } from "../common/Footer";
-import LoginForm from "./LoginForm";
 import { SideBar } from "../common/SideBar";
 
-const LoginSite = () => {
+const Usersite = () => {
 
     return (
         <div>
             <Header />
             <div id='content'>
-                <LoginForm />
+                <div>
+                    <h2>Password succesfully changed</h2>
+                    <p className="link"></p>
+                </div>
                 <SideBar />
             </div>
             <Footer />
@@ -18,4 +20,4 @@ const LoginSite = () => {
     )
 }
 
-export default LoginSite;
+export default Usersite;

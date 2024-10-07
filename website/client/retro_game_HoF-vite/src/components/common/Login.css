@@ -1,7 +1,7 @@
 #login {
-    margin: 15px;
-    padding: 15px;
-    background-color: white;
+    margin: 15px 15px 5px 10px;
+    padding: 10px 15px;
+    background-color: #F3F3F3;
     height: fit-content;
     border-radius: 10px;
     user-select: none;
@@ -9,4 +9,29 @@
 
 #login:hover {
     background-color: lightgray;
+}
+
+.user-dropdown-content {
+    position: absolute;
+    background-color: #F3F3F3;
+    width: 100px;
+    height: auto;
+    right: 0;
+    margin-right: 15px;
+    border-radius: 10px;
+    user-select: none;
+    overflow: hidden;
+    border: 1px solid gray;
+}
+
+.user-dropdown-content p {
+    padding: 10px;
+}
+
+.user-dropdown-content p:hover {
+    background-color: lightgray;
+}
+
+.placeholder {
+    height: 60px;
 }
