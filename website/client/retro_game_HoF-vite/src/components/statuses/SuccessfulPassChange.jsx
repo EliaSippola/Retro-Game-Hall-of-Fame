@@ -6,12 +6,12 @@ import { SideBar } from "../common/SideBar";
 const Usersite = () => {
 
     return (
-        <div>
+        <div id="successfulpasschange">
             <Header />
             <div id='content'>
                 <div>
                     <h2>Password succesfully changed</h2>
-                    <p className="link"></p>
+                    <p className="link" onClick={handleLinkClick}>Back to home page</p>
                 </div>
                 <SideBar />
             </div>

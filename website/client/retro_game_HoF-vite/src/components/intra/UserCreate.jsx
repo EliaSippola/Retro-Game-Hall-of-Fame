@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './UserCreate.css';
+import { createUser, getUser } from "../../methods/userData";
 
-const UserCreate = () => {
+const UserCreate = ({ setUpdate }) => {
 
     const [values, setValues] = useState({username: "", password: "", permission_level: "0"});
     const [message, setMessage] = useState("");
@@ -11,11 +12,20 @@ const UserCreate = () => {
             ...values,
             [e.target.name]: e.target.value
         });
+
+        if (message != "") {
+            setMessage("");
+        }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(values);
+        if (await createUser(getUser()._id, values)) {
+            setMessage("Succesfully created user");
+            setUpdate(1);
+        } else {
+            setMessage("Could not create user");
+        }
     }
 
     return (

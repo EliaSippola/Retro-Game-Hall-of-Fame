@@ -20,9 +20,18 @@ const Intra = () => {
     const [games, setGames] = useState([]);
     const [selector, setSelector] = useState(0);
 
+    const [update, setUpdate] = useState(0);
+
     useEffect(() => {
         checkLogin();
     }, []);
+
+    useEffect(() => {
+        if (update == 1) {
+            checkLogin();
+            setUpdate(0);
+        }
+    }, [update]);
 
     const checkLogin = () => {
         const tempUserData = getUser();
@@ -65,7 +74,7 @@ const Intra = () => {
                     </div>
                     {selector == 0 ? 
                         <>
-                        <UserCreate />
+                        <UserCreate setUpdate={setUpdate} />
                         <UserEdit users={users} />
                         </>
                         :

@@ -55,19 +55,20 @@ export async function getAllUsers(_id) {
 
 }
 
-export async function createUser(userdata) {
+export async function createUser(_id, userdata) {
 
     if (userdata.username && userdata.password) {
 
-        const res = fetch(baseUrl + "/users/create", {
+        const res = await fetch(baseUrl + "/users/create", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                _id: _id ? _id : null,
                 username: userdata.username,
                 password: userdata.password,
-                permission_level: 0
+                permission_level: userdata.permission_level ? userdata.permission_level : 0
             })
         })
 
@@ -82,3 +83,4 @@ export async function createUser(userdata) {
     }
 
 }
+

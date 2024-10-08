@@ -6,4 +6,6 @@ router.post('/login', control.login);
 
 router.post('/', control.getAll);
 
+router.post('/create', control.createUser);
+
 module.exports = router;
