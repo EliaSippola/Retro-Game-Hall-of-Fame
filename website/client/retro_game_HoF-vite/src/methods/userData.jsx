@@ -84,3 +84,30 @@ export async function createUser(_id, userdata) {
 
 }
 
+export async function changePass(_id, password, oldPassword) {
+
+    if (_id && password && oldPassword) {
+
+        const res = await fetch(baseUrl + "/user/changepass", {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                _id: _id,
+                password: userdata.password,
+                oldPassword: oldPassword
+            })
+        });
+
+        if (res && res.status == 200) {
+            return true;
+        } else {
+            return false;
+        }
+
+    } else {
+        return false;
+    }
+
+}

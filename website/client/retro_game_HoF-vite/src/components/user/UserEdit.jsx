@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './UserEdit.css';
-import { createUser, getUser, login } from "../../methods/userData";
+import { changePass, createUser, getUser, login } from "../../methods/userData";
 
 const UserEdit = () => {
 
-    const [values, setValues] = useState({username: "", password: ""});
+    const [values, setValues] = useState({_id: "",username: "", password: ""});
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
+    const [oldPass, setOldPass] = useState("");
 
     useEffect(() => {
         handleUser();
@@ -20,7 +21,8 @@ const UserEdit = () => {
         if (tempValues._id == '') {
             navigate('/unauthorized');
         } else {
-            setValues({username: tempValues.username, password: ''});
+            setValues({_id: "", username: tempValues.username, password: ''});
+            setOldPass(tempValues.password);
         }
 
     }
@@ -34,7 +36,7 @@ const UserEdit = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (await createUser({username: values.username, password: values.password})) {
+        if (await changePass(values._id, values.password, oldPass)) {
             navigate('/successful-pass-change');
         }
     }

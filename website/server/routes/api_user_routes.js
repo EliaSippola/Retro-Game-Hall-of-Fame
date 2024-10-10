@@ -8,4 +8,6 @@ router.post('/', control.getAll);
 
 router.post('/create', control.createUser);
 
+router.put('/changepass', control.updatePass);
+
 module.exports = router;

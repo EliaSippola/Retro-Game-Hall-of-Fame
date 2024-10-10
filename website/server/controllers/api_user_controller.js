@@ -125,9 +125,27 @@ exports.createUser = async (req, res) => {
 // change pass
 exports.updatePass = async (req, res) => {
 
-    const username = req.body.username;
+    const _id = req.body._id;
+    const password = req.body.password;
     const oldPassword = req.body.oldPassword;
-    const newPassword = req.body.newPassword;
+
+    try {
+
+        const user = await User.findOne({"_id":_id});
+
+        if (!user) {
+            res.status(400).end();
+        } else if (user.password != oldPassword) {
+            res.status(403).end();
+        } else {
+            await User.updateOne({"_id":_id}, {$set:{"password":password}});
+            res.status(200).end();
+        }
+
+    } catch (e) {
+        res.status(500).end();
+        console.log("Error on update request (changing password): " + e);
+    }
 
 }
 
