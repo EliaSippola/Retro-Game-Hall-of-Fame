@@ -7,6 +7,7 @@ import LoginSite from './components/login/LoginSite';
 import Intra from './components/intra/Intra';
 import Unauthorized from './components/statuses/Unauthorized';
 import Usersite from './components/user/Usersite';
+import SuccessfulPassChange from './components/statuses/SuccessfulPassChange';
 
 function App() {
 
@@ -37,6 +38,10 @@ function App() {
           <Route
             path='/unauthorized'
             element={<Unauthorized />}
+          />
+          <Route
+            path='/successful-pass-change'
+            element={<SuccessfulPassChange />}
           />
           <Route 
             path="*"

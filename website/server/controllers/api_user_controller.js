@@ -151,10 +151,33 @@ exports.updatePass = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
 
-    const userID = req.body.userID;
     const _id = req.body._id;
+
+    const userId = req.body.userId;
     const username = req.body.username;
     const password = req.body.password;
-    const permission_level = req.body.password;
+    const permission_level = req.body.permission_level;
+
+    if (!_id || !userId  || !username || !password || !permission_level) {
+        res.status(400).end();
+    }
+
+    try {
+
+        const user = await User.findOne({"_id":_id});
+
+        if (!user) {
+            res.status(403).end();
+        } else if (user.permission_level != 1) {
+            res.status(403).end();
+        } else {
+            await User.updateOne({"_id":userId}, {$set:{"username":username, "password":password, "permission_level":permission_level}});
+            res.status(200).end();
+        }
+
+    } catch (e) {
+        res.status(500).end();
+        console.log("Error on update request (updating user): " + e);
+    }
 
 }

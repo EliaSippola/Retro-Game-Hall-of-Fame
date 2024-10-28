@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
 import { getUser, setUser } from '../../methods/userData';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function Login() {
 
@@ -27,6 +27,16 @@ export function Login() {
         setActive(false);
         navigate('/account');
     }
+
+    const closeMenu = (e) => {
+        if(!e.target.closest("#login")) {
+            setActive(false);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("click", closeMenu);
+    });
 
     return (
         <>

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import './Menu.css'
 import image from './../../assets/Hamburger_icon.svg.png'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export function Menu({state}) {
@@ -22,6 +22,16 @@ export function Menu({state}) {
         setActive(false);
         navigate('/intra');
     }
+
+    const closeMenu = (e) => {
+        if(!e.target.closest("#menu")) {
+            setActive(false);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("click", closeMenu);
+    });
 
     return (
         <div>

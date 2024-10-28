@@ -22,6 +22,7 @@ const UserCreate = ({ setUpdate }) => {
         e.preventDefault();
         if (await createUser(getUser()._id, values)) {
             setMessage("Succesfully created user");
+            setValues({username: "", password: "", permission_level: "0"})
             setUpdate(1);
         } else {
             setMessage("Could not create user");

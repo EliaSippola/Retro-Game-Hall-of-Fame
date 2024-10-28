@@ -26,7 +26,7 @@ export async function login(name, password) {
     const values = await res.json();
 
     if (res.ok && values.login != null && values.login) {
-        setUser(values._id, values.username, values.password);
+        setUser(values._id, values.username, password);
         return true;
     } else {
         setUser('', '', '');
@@ -84,19 +84,52 @@ export async function createUser(_id, userdata) {
 
 }
 
-export async function changePass(_id, password, oldPassword) {
+export async function updateUser(_id, userdata) {
 
-    if (_id && password && oldPassword) {
+    console.log(userdata);
 
-        const res = await fetch(baseUrl + "/user/changepass", {
+    if (userdata._id && userdata.username && userdata.password && userdata.permission_level) {
+
+        const res = await fetch(baseUrl + "/users/update", {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                _id: _id ? _id : null,
+                userId: userdata._id,
+                username: userdata.username,
+                password: userdata.password,
+                permission_level: userdata.permission_level
+            })
+        })
+
+        if (res && res.status == 200) {
+            return true;
+        } else {
+            return false;
+        }
+
+    } else {
+        return false;
+    }
+
+
+}
+
+export async function changePass(_id, password) {
+
+    if (_id && password && user.password) {
+
+        const res = await fetch(baseUrl + "/users/changepass", {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 _id: _id,
-                password: userdata.password,
-                oldPassword: oldPassword
+                password: password,
+                oldPassword: user.password
             })
         });
 

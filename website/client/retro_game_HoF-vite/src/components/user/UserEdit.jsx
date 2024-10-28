@@ -8,7 +8,6 @@ const UserEdit = () => {
     const [values, setValues] = useState({_id: "",username: "", password: ""});
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
-    const [oldPass, setOldPass] = useState("");
 
     useEffect(() => {
         handleUser();
@@ -21,8 +20,7 @@ const UserEdit = () => {
         if (tempValues._id == '') {
             navigate('/unauthorized');
         } else {
-            setValues({_id: "", username: tempValues.username, password: ''});
-            setOldPass(tempValues.password);
+            setValues({_id: tempValues._id, username: tempValues.username, password: ''});
         }
 
     }
@@ -36,8 +34,10 @@ const UserEdit = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (await changePass(values._id, values.password, oldPass)) {
+        if (await changePass(values._id, values.password, getUser().password)) {
             navigate('/successful-pass-change');
+        } else {
+            setMessage("failed to change password");
         }
     }
 

@@ -2,8 +2,15 @@ import React from "react";
 import { Header } from "../common/Header";
 import { Footer } from "../common/Footer";
 import { SideBar } from "../common/SideBar";
+import { useNavigate } from "react-router-dom";
 
 const Usersite = () => {
+
+    const navigate = useNavigate();
+    
+    const handleLinkClick = () => {
+        navigate('/');
+    }
 
     return (
         <div id="successfulpasschange">

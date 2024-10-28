@@ -81,7 +81,6 @@ const Intra = () => {
                         <GameEdit games={games} />
                     }
                 </div>
-                <SideBar />
             </div>
             <Footer />
         </div>

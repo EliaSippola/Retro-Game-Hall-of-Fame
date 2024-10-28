@@ -9,7 +9,7 @@ const Unauthorized = () => {
 
     const navigate = useNavigate();
     
-    const hadleLinkClick = () => {
+    const handleLinkClick = () => {
         navigate('/');
     }
 
@@ -19,7 +19,7 @@ const Unauthorized = () => {
             <div id='content'>
                 <div id="unauthorized">
                     <h2>Unauthorized</h2>
-                    <p className="link" onClick={hadleLinkClick}>Return to Home page</p>
+                    <p className="link" onClick={handleLinkClick}>Return to Home page</p>
                 </div>
                 <SideBar />
             </div>
