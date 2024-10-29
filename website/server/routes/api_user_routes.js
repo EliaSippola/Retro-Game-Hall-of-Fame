@@ -12,4 +12,6 @@ router.put('/changepass', control.updatePass);
 
 router.put('/update', control.updateUser);
 
+router.delete('/delete', control.deleteUser);
+
 module.exports = router;

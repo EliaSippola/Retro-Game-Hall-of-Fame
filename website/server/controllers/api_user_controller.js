@@ -72,6 +72,7 @@ exports.createUser = async (req, res) => {
 
     if (username == null || password == null) {
         res.send(400).end();
+        return;
     }
 
     // check if there is duplicate names
@@ -160,6 +161,7 @@ exports.updateUser = async (req, res) => {
 
     if (!_id || !userId  || !username || !password || !permission_level) {
         res.status(400).end();
+        return;
     }
 
     try {
@@ -168,8 +170,10 @@ exports.updateUser = async (req, res) => {
 
         if (!user) {
             res.status(403).end();
+            return;
         } else if (user.permission_level != 1) {
             res.status(403).end();
+            return;
         } else {
             await User.updateOne({"_id":userId}, {$set:{"username":username, "password":password, "permission_level":permission_level}});
             res.status(200).end();
@@ -178,6 +182,36 @@ exports.updateUser = async (req, res) => {
     } catch (e) {
         res.status(500).end();
         console.log("Error on update request (updating user): " + e);
+    }
+
+}
+
+exports.deleteUser = async (req, res) => {
+
+    const _id = req.body._id;
+
+    const userId = req.body.userId;
+
+    if (!_id || !userId) {
+        res.status(403).end();
+        return;
+    }
+
+    try {
+
+        const user = await User.findOne({"_id":_id});
+
+        if (!user || user.permission_level != 1) {
+            res.status(403).end();
+            return;
+        } else {
+            await User.deleteOne({"_id": userId});
+            res.status(200).end();
+        }
+
+    } catch (e) {
+        res.status(500).end();
+        console.log("Error on delete request (deleting user): " + e);
     }
 
 }
