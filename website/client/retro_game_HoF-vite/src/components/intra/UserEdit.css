@@ -1,6 +1,57 @@
 #usercard {
     border: 1px solid gray;
     border-radius: 10px;
-    margin: 10px 10px 10px 0;
+    margin: 0 10px 0 0;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.userData {
+    width: 100%;
     padding: 5px;
+}
+
+.userData:hover {
+    background-color: #dadada;
+}
+
+.userData > div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px;
+}
+
+.hiddenForm {
+    margin: 10px 5px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5px;
+}
+
+.hiddenForm > form {
+    height: 100%;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr auto auto auto;
+}
+
+.hiddenForm > form > input {
+    padding: 0;
+    margin: 0px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    text-indent: 2px;
+}
+
+.hiddenForm > form > select {
+    border-radius: 5px;
+}
+
+#search {
+    margin: 10px 0 0px 0;
+}
+
+#searchBox {
+    margin-left: 0px;
+    padding: 0 5px;
 }

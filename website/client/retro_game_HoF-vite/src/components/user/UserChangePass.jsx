@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './UserEdit.css';
-import { changePass, createUser, getUser, login } from "../../methods/userData";
+import './UserChangePass.css';
+import { changePass, getUser } from "../../methods/userData";
 
-const UserEdit = () => {
+const UserChangePass = () => {
 
     const [values, setValues] = useState({_id: "",username: "", password: ""});
     const [message, setMessage] = useState("");
@@ -56,4 +56,4 @@ const UserEdit = () => {
     )
 }
 
-export default UserEdit;
+export default UserChangePass;

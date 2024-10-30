@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import './UserEdit.css';
-import { getUser, updateUser } from '../../methods/userData';
+import { deleteUser, getUser, updateUser } from '../../methods/userData';
+import { Search } from '../common/Search';
 
-export function UserEdit({users}) {
+export function UserEdit({users, setUpdate}) {
 
     const [tmpUser, setTmpUser] = useState({_id: "", username: "", password: "", permission_level: 0});
     const [current, setCurrent] = useState(-1);
+    const [filter, setFilter] = useState("");
 
     const handleClick = (e) => {
         current == e.currentTarget.dataset.key ? setCurrent(-1) :
@@ -15,28 +17,45 @@ export function UserEdit({users}) {
     }
 
     const handleChange = (e) => {
-
         setTmpUser({
             ...tmpUser,
             [e.currentTarget.dataset.type]: e.target.value
         });
-
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(await updateUser(getUser()._id, tmpUser));
+        setUpdate(1);
+        setCurrent(-1);
     }
+
+    const handleDelete = async (e) => {
+        const del = confirm("Are you sure you want to delete account " + e.currentTarget.dataset.username + " PERMAMENTY?");
+
+        if (del) {
+            await deleteUser(getUser()._id, e.currentTarget.dataset.id);
+        }
+
+        setCurrent(-1);
+        setUpdate(1);
+    }
+
+    useEffect(() => {
+        setCurrent(-1);
+    }, [filter]);
 
     return (
         <div id="useredit">
-            {users.map((user, i) => {
+            <Search value={filter} setValue={setFilter} />
+            {users.filter((a) => {return a.username.includes(filter)}).map((user, i) => {
                 return (
                     <div key={i} id="usercard">
 
                         <div className='userData' onClick={handleClick} data-key={i} data-id={user._id} data-username={user.username} data-password={user.password} data-permission_level={user.permission_level} >
-                            <p>{user.username}</p>
-                            <p>{user.permission_level == 0 ? "Normal User" : "Admin User"}</p>
+                            <div>
+                                <p>{user.username}</p>
+                                <p>{user.permission_level == 0 ? "Normal User" : "Admin User"}</p>
+                            </div>
                         </div>
 
                         {/* form data */}
@@ -50,7 +69,7 @@ export function UserEdit({users}) {
                             </select>
                             <button type="submit" name="submit">Save</button>
                         </form>
-                        <button name='delete' data-id={user._id}>Delete User</button>
+                        <button name='delete' data-id={user._id} onClick={handleDelete} data-username={user.username} >Delete User</button>
                         </div>
 
                     </div>

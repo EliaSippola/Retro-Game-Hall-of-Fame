@@ -75,7 +75,7 @@ const Intra = () => {
                     {selector == 0 ? 
                         <>
                         <UserCreate setUpdate={setUpdate} />
-                        <UserEdit users={users} />
+                        <UserEdit users={users} setUpdate={setUpdate} />
                         </>
                         :
                         <GameEdit games={games} />

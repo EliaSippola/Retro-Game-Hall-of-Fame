@@ -2,7 +2,7 @@ import React from "react";
 import { Header } from "../common/Header";
 import { Footer } from "../common/Footer";
 import { SideBar } from "../common/SideBar";
-import UserEdit from "./UserEdit";
+import UserChangePass from "./UserChangePass";
 
 const Usersite = () => {
 
@@ -10,7 +10,7 @@ const Usersite = () => {
         <div>
             <Header />
             <div id='content'>
-                <UserEdit />
+                <UserChangePass />
                 <SideBar />
             </div>
             <Footer />

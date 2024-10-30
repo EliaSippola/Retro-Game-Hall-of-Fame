@@ -86,8 +86,6 @@ export async function createUser(_id, userdata) {
 
 export async function updateUser(_id, userdata) {
 
-    console.log(userdata);
-
     if (userdata._id && userdata.username && userdata.password && userdata.permission_level) {
 
         const res = await fetch(baseUrl + "/users/update", {
@@ -114,6 +112,33 @@ export async function updateUser(_id, userdata) {
         return false;
     }
 
+
+}
+
+export async function deleteUser(_id, userId) {
+
+    if (_id || userId) {
+
+        const res = await fetch(baseUrl + "/users/delete", {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                _id: _id ? _id : null,
+                userId: userId
+            })
+        })
+
+        if (res && res.status == 200) {
+            return true;
+        } else {
+            return false;
+        }
+
+    } else {
+        return false;
+    }
 
 }
 
