@@ -42,7 +42,7 @@ const UserChangePass = () => {
     }
 
     return (
-        <div id="useredit">
+        <div id="userchangepass">
             <h2>Change password</h2>
             <form onSubmit={handleSubmit}>
                 <div>
