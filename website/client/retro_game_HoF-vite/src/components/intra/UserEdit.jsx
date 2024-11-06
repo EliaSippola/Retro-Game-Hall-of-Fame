@@ -13,7 +13,7 @@ export function UserEdit({users, setUpdate}) {
         current == e.currentTarget.dataset.key ? setCurrent(-1) :
         setCurrent(e.currentTarget.dataset.key);
 
-        setTmpUser({_id: e.currentTarget.dataset.id, username: e.currentTarget.dataset.username, password: e.currentTarget.dataset.password, permission_level: e.currentTarget.dataset.permission_level});
+        setTmpUser({_id: e.currentTarget.dataset.id, username: e.currentTarget.dataset.username, password: e.currentTarget.dataset.password, permission_level: e.currentTarget.dataset.permission});
     }
 
     const handleChange = (e) => {
@@ -23,8 +23,13 @@ export function UserEdit({users, setUpdate}) {
         });
     }
 
+    useEffect(() => {
+        console.log(tmpUser);
+    }, [tmpUser]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        await updateUser(getUser()._id, tmpUser);
         setUpdate(1);
         setCurrent(-1);
     }
@@ -51,7 +56,7 @@ export function UserEdit({users, setUpdate}) {
                 return (
                     <div key={i} id="usercard">
 
-                        <div className='userData' onClick={handleClick} data-key={i} data-id={user._id} data-username={user.username} data-password={user.password} data-permission_level={user.permission_level} >
+                        <div className='userData' onClick={handleClick} data-key={i} data-id={user._id} data-username={user.username} data-password={user.password} data-permission={user.permission_level} >
                             <div>
                                 <p>{user.username}</p>
                                 <p>{user.permission_level == 0 ? "Normal User" : "Admin User"}</p>
@@ -63,7 +68,7 @@ export function UserEdit({users, setUpdate}) {
                         <form onSubmit={handleSubmit}>
                             <input type='text' value={tmpUser.username} onChange={handleChange} data-type="username" />
                             <input type='text' value={tmpUser.password} onChange={handleChange} data-type="password" />
-                            <select name="permission_level" onChange={handleChange} data-type="permission_level" defaultValue={user.permission_level}>
+                            <select name="permission_level" onChange={handleChange} data-type="permission_level" value={tmpUser.permission_level}>
                                 <option value={0}>Normal user</option>
                                 <option value={1}>Admin user</option>
                             </select>

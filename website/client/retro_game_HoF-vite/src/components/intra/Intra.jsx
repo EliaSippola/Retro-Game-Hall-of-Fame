@@ -33,13 +33,13 @@ const Intra = () => {
         }
     }, [update]);
 
-    const checkLogin = () => {
+    const checkLogin = async () => {
         const tempUserData = getUser();
         setUserData(tempUserData);
         if (tempUserData._id == '') {
             navigate('/unauthorized');
         } else {
-            getUsers(tempUserData._id);
+            await getUsers(tempUserData._id);
         }
     }
 
@@ -48,7 +48,7 @@ const Intra = () => {
         if (tempAllUsers == false) {
             navigate('/unauthorized');
         } else {
-            setUsers(tempAllUsers);
+            setUsers([...tempAllUsers]);
             getGamesAsync();
         }
     }
