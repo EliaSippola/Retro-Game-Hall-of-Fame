@@ -23,10 +23,6 @@ export function UserEdit({users, setUpdate}) {
         });
     }
 
-    useEffect(() => {
-        console.log(tmpUser);
-    }, [tmpUser]);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         await updateUser(getUser()._id, tmpUser);

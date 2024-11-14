@@ -57,3 +57,25 @@ export const getPhoto = async (file) => {
     const imageObjectUrl = URL.createObjectURL(imageBlob);
     return imageObjectUrl;
 }
+
+export const updateGame = async (_id, gameId, name, description) => {
+
+    const res = await fetch(baseUrl + "/games/update", {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            _id: _id ? _id : null,
+            gameId: gameId,
+            name: name,
+            description: description
+        })
+    })
+
+    if (res.ok) {
+        return true;
+    } else {
+        return false;
+    }
+}

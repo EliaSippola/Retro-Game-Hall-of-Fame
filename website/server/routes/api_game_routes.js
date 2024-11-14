@@ -6,4 +6,6 @@ router.get('/:id', control.getOne);
 
 router.get('/', control.get);
 
+router.put('/update', control.updateOne);
+
 module.exports = router;

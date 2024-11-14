@@ -1,0 +1,10 @@
+.game-canvas {
+    width: calc(100svw - 380px);
+    height: calc(100svw - 380px);
+    background-color: black;
+    margin-left: 10px;
+    min-width: 400px;
+    min-height: 400px;
+    max-width: 1050px;
+    max-height: 1050px;
+}
