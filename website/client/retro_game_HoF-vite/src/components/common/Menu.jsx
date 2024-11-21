@@ -13,15 +13,11 @@ export function Menu({state}) {
         active ? setActive(false) : setActive(true);
     }
 
-    const handleGameListClick = () => {
+    const handleClick = (e) => {
         setActive(false);
-        navigate('/');
+        navigate(e.currentTarget.dataset.link);
     }
 
-    const handleIntraClick = () => {
-        setActive(false);
-        navigate('/intra');
-    }
 
     const closeMenu = (e) => {
         if(!e.target.closest("#menu")) {
@@ -40,8 +36,9 @@ export function Menu({state}) {
             </div>
             {active ? 
                 <div className='menu-dropdown-content' >
-                    <div onClick={handleGameListClick}>Gamelist</div>
-                    <div onClick={handleIntraClick} >Intra</div>
+                    <div onClick={handleClick} data-link="/">Gamelist</div>
+                    <div onClick={handleClick} data-link="/snake">Matopeli</div>
+                    <div onClick={handleClick} data-link="/intra">Intra</div>
                 </div>
                 :
                 <></>

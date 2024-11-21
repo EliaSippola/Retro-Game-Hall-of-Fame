@@ -1,35 +1,88 @@
 import { useEffect, useRef, useState } from 'react';
 import './snakegame.css';
+import { createGame, getCanvas, getPoints, getSnake, getSnake2 } from './snakedata';
 
 function Snakegame() {
 
     const size = useWindowSize();
-    const pxAmount = 20; // how many pixels will there be
     const canvasRef = useRef();
+    const [state, setState] = useState(0);
+    const [message, setMessage] = useState("Start Game");
+    const [points, setPoints] = useState(0);
+    const [points2, setPoints2] = useState(0);
 
     useEffect(() => {
-        console.log(size);
-        const canvas = canvasRef.current;
-        const context = canvas.getContext('2d');
-        context.canvas.height = size;
-        context.canvas.width = size;
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.fillStyle = '#FFFFFF';
-        context.fillRect(Math.floor(0 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)));
-        context.fillRect(Math.floor(2 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)));
-        context.fillRect(Math.floor(4 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)));
-        context.fillRect(Math.floor(6 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)));
-        context.fillRect(Math.floor(8 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)));
-        context.fillRect(Math.floor(10 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)));
-        context.fillRect(Math.floor(12 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)));
-        context.fillRect(Math.floor(14 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)));
-        context.fillRect(Math.floor(16 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)));
-        context.fillRect(Math.floor(18 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)), Math.floor(1 * (size / pxAmount)));
-        console.log(size, canvas.width);
+
+        const handleKeyDown = (e) => {
+
+            const key = e.key;
+            const snake = getSnake();
+            const snake2 = getSnake2();
+            switch (key) {
+                case "a": {e.preventDefault(); snake.direction = 1; break;}
+                case "s": {e.preventDefault(); snake.direction = 2; break;}
+                case "d": {e.preventDefault(); snake.direction = 3; break;}
+                case "w": {e.preventDefault(); snake.direction = 0; break;}
+                case "ArrowLeft": {e.preventDefault(); snake2.direction = 1; break;}
+                case "ArrowDown": {e.preventDefault(); snake2.direction = 2; break;}
+                case "ArrowRight": {e.preventDefault(); snake2.direction = 3; break;}
+                case "ArrowUp": {e.preventDefault(); snake2.direction = 0; break;}
+            }
+    
+        }
+        document.addEventListener('keydown', handleKeyDown, true);
+
+        const interval = setInterval(() => {
+            setPoints(getSnake().points);
+            setPoints2(getSnake2().points);
+            advance();
+        }, 50);
+
+        return () => {
+            clearInterval(interval);
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (state == -1) {
+            console.log("you lost");
+            setState(0);
+            setMessage("Start again");
+            getCanvas().reset(canvasRef, size);
+        }
+    }, [state]);
+
+    useEffect(() => {
+        createGame(canvasRef, size);
     }, [size]);
 
+    function advance() {
+        getCanvas().advance(setState);
+    }
+
+    function handleStartClick() {
+
+        // game not running
+        if (state == 0 || state == 2) {
+            getCanvas().paused = false;
+            setMessage("Pause");
+            setState(1);
+        } else if (state == 1) {
+            getCanvas().paused = true;
+            setMessage("Unpause");
+            setState(2);
+        }
+
+    }
+
     return (
-        <canvas className="game-canvas" ref={canvasRef} />
+        <div className='game'>
+            <canvas className="game-canvas" ref={canvasRef} />
+            <button onClick={handleStartClick}>{message}</button>
+            <p>Points: {points}</p>
+            <p>Points2: {points2}</p>
+        </div>
     )
 
 }
@@ -52,8 +105,9 @@ function useWindowSize() {
         return () => window.removeEventListener("resize", handleResize);
     })
 
-
     return size;
 }
+
+
 
 export default Snakegame;
